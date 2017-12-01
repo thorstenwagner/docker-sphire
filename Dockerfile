@@ -12,7 +12,7 @@ ENV CENTOS_FRONTEND noninteractive
 RUN yum update 
 
 # install wget
-RUN yum install wget which 
+RUN yum install wget which -y
 
 # get sphire
 RUN mkdir SPHIRE
