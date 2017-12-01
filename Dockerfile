@@ -15,7 +15,6 @@ RUN yum update
 RUN yum install wget which -y
 
 # get sphire
-RUN mkdir SPHIRE
 RUN mkdir SPHIRE-INSTALL
 RUN cd SPHIRE-INSTALL
 RUN wget --no-check-certificate https://ftp.gwdg.de/pub/misc/sphire/sphire_beta_20170602/sphire_beta_20170602.linux64.centos6.sh
