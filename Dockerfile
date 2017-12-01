@@ -15,22 +15,18 @@ RUN yum update
 RUN yum install wget which mesa-libGL-devel -y
 
 # get sphire
-RUN mkdir SPHIRE-INSTALL
-RUN cd SPHIRE-INSTALL
-RUN pwd
-#RUN wget --no-check-certificate https://ftp.gwdg.de/pub/misc/sphire/sphire_beta_20170602/sphire_beta_20170602.linux64.centos6.sh
-#RUN bash sphire_beta_20170602.linux64.centos6.sh -b -p ../SPHIRE
-RUN mkdir ../SPHIRE
-RUN cd ../SPHIRE
-RUN pwd
-RUN echo "PATH=${PWD}/bin:${PATH}" >> ${HOME}/.bashrc
+
+RUN wget --no-check-certificate https://ftp.gwdg.de/pub/misc/sphire/sphire_beta_20170602/sphire_beta_20170602.linux64.centos6.sh
+RUN bash sphire_beta_20170602.linux64.centos6.sh -b -p ${HOME}/SPHIRE
+
+RUN echo "PATH=${HOME}/SPHIRE/bin:${PATH}" >> ${HOME}/.bashrc
 RUN cat ${HOME}/.bashrc
 RUN source ${HOME}/.bashrc
 RUN ls
-RUN bash utils/uninstall_openmpi.sh -y
-RUN bash utils/build_and_install_openmpi.sh 
-RUN bash utils/build_pydusa_numpy.sh 1.8 --no-test
-RUN bash utils/install_pydusa_numpy.sh 1.8 
+RUN cd ${HOME}/SPHIRE/; bash ${HOME}/SPHIRE/utils/uninstall_openmpi.sh -y
+RUN cd ${HOME}/SPHIRE/; bash ${HOME}/SPHIRE/utils/build_and_install_openmpi.sh 
+RUN cd ${HOME}/SPHIRE/; bash ${HOME}/SPHIRE/utils/build_pydusa_numpy.sh 1.8 --no-test
+RUN cd ${HOME}/SPHIRE/; bash ${HOME}/SPHIRE/utils/install_pydusa_numpy.sh 1.8 
 
 # open ssh port
 EXPOSE 22
