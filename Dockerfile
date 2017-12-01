@@ -20,7 +20,7 @@ RUN cd SPHIRE-INSTALL
 RUN pwd
 #RUN wget --no-check-certificate https://ftp.gwdg.de/pub/misc/sphire/sphire_beta_20170602/sphire_beta_20170602.linux64.centos6.sh
 #RUN bash sphire_beta_20170602.linux64.centos6.sh -b -p ../SPHIRE
-mkdir ../SPHIRE
+RUN mkdir ../SPHIRE
 RUN cd ../SPHIRE
 RUN pwd
 RUN echo "PATH=${PWD}/bin:${PATH}" >> ${HOME}/.bashrc
