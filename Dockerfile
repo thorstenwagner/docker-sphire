@@ -18,12 +18,13 @@ RUN yum install wget which mesa-libGL-devel -y
 RUN mkdir SPHIRE-INSTALL
 RUN cd SPHIRE-INSTALL
 RUN pwd
-RUN wget --no-check-certificate https://ftp.gwdg.de/pub/misc/sphire/sphire_beta_20170602/sphire_beta_20170602.linux64.centos6.sh
-RUN bash sphire_beta_20170602.linux64.centos6.sh -b -p ../SPHIRE
-
+#RUN wget --no-check-certificate https://ftp.gwdg.de/pub/misc/sphire/sphire_beta_20170602/sphire_beta_20170602.linux64.centos6.sh
+#RUN bash sphire_beta_20170602.linux64.centos6.sh -b -p ../SPHIRE
+mkdir ../SPHIRE
 RUN cd ../SPHIRE
 RUN pwd
 RUN echo "PATH=${PWD}/bin:${PATH}" >> ${HOME}/.bashrc
+RUN cat ${HOME}/.bashrc
 RUN source ${HOME}/.bashrc
 RUN ls
 RUN bash utils/uninstall_openmpi.sh -y
