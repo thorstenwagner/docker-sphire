@@ -12,7 +12,7 @@ ENV CENTOS_FRONTEND noninteractive
 RUN yum update 
 
 # install wget
-RUN yum install wget which -y
+RUN yum install wget which mesa-libGL-devel -y
 
 # get sphire
 RUN mkdir SPHIRE-INSTALL
