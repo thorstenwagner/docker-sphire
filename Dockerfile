@@ -20,6 +20,8 @@ RUN wget --no-check-certificate https://ftp.gwdg.de/pub/misc/sphire/sphire_beta_
 RUN bash sphire_beta_20170602.linux64.centos6.sh -b -p ${HOME}/SPHIRE
 
 RUN echo "PATH=${HOME}/SPHIRE/bin:${PATH}" >> ${HOME}/.bashrc
+RUN echo "PATH=${HOME}/SPHIRE/bin:${PATH}" >> ${HOME}/.bash_profile
+RUN echo "PATH=${HOME}/SPHIRE/bin:${PATH}" >> ${HOME}/.profile
 RUN cat ${HOME}/.bashrc
 RUN source ${HOME}/.bashrc
 RUN ls
